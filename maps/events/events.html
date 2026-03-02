@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="events.css" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="events.css" />
+  <title>UC Merced Campus Events Map</title>
+</head>
 
-    <title>UC Merced Campus Events Map</title>
-    <iframe class="map-embed" id="map-iframe" src="https://mapbuilder.ucmercedhub.com/share/69011d808d37778a2881c809" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""></iframe>
-
-    <div class="side-menu">
-      <h2>Campus Events Map</h2>
+<body>
+  <!-- Sidebar -->
+  <div class="sidemenu">
+    <div class="sidemenu-head">
+      <h2>UCM CAMPUS MAP</h2>
     </div>
-  
-</body></html>
+
+    <nav class="sidemenu-nav">
+      <a href="#">HOME</a>
+      <a href="#">EVENTS</a>
+      <a href="#">GPS</a>
+      <a href="#" id="aboutBtn">ABOUT</a>
+    </nav>
+  </div>
+
+  <iframe 
+    class="map" src="https://mapbuilder.ucmercedhub.com/share/69011d808d37778a2881c809" loading="lazy" allowfullscreen>
+  </iframe>
+  <!-- About Modal -->
+<div id="aboutModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h2>About</h2>
+    <p>
+      This UC Merced Campus Events Map helps students find events and navigate campus easily.
+    </p>
+  </div>
+</div>
+  <script src="events.js"></script>
+</body>
+</html>
