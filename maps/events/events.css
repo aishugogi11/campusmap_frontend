@@ -37,14 +37,14 @@ h2 {
   position: absolute;
   bottom: 10%;
   top: 10%;
-  left: 3%;
+  left: 2%;
   width: 300px;
   height: 80vh;
-  border-radius: 35px;
+  border-radius: 15px;
 
   background: var(--menu-bg);
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 
   padding: 20px;
   display: flex;
@@ -83,6 +83,11 @@ h2 {
   background: var(--active-bg);
 }
 
+.sidemenu-nav a i {
+  margin-right: 10px;
+  width: 18px;
+}
+
 @media (max-width: 47em) {
   .sidemenu {
     position: fixed;
@@ -91,7 +96,7 @@ h2 {
     width: 100%;
     height: 40vh;
 
-    background: rgba(255, 255, 255, 0.323);
+    background: var(--menu-bg);
     backdrop-filter: blur(10px);
     box-shadow: 0 5px 30px rgba(0,0,0,0.15);
     border-radius: 15px;
