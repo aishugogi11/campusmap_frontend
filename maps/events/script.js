@@ -1,16 +1,15 @@
 const toggle = document.querySelector(".menu-toggle");
 const sidemenu = document.querySelector(".sidemenu");
 
-if (toggle) {
-  toggle.addEventListener("click", () => {
-    sidemenu.classList.toggle("collapsed");
-  });
-}
+toggle.addEventListener("click", () => {
+  sidemenu.classList.toggle("collapsed");
+});
 
-function handleToggleVisibility() {
-  if (window.innerWidth <= 752 && toggle) {
-    toggle.remove();
+function handleResize() {
+  if (window.innerWidth <= 752) {
+    sidemenu.classList.remove("collapsed");
   }
 }
 
-handleToggleVisibility();
+window.addEventListener("resize", handleResize);
+handleResize();
