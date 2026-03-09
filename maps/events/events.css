@@ -9,8 +9,8 @@
   --menu-bg: rgba(255, 255, 255, 0.75);
   --menu-item-bg: rgba(0,0,0,0.06);
   --text-color: #1d1d1f;
-  --hover-bg: rgba(0,0,0,0.10);  
-  --active-bg: rgba(0,0,0,0.16);  
+  --hover-bg: rgba(0,0,0,0.10);
+  --active-bg: rgba(0,0,0,0.16);
   --handle: #424242;
 }
 
@@ -54,17 +54,19 @@ body {
   z-index: 100;
 }
 
-/* Fix: disable transitions on sidemenu and all children during resize */
+/* Disable transitions during resize */
 .sidemenu.no-transition,
 .sidemenu.no-transition * {
   transition: none !important;
 }
 
+/* --- Header --- */
 .sidemenu-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 40px;
+  flex-shrink: 0;
 }
 
 .sidemenu-head h2 {
@@ -86,14 +88,28 @@ body {
   background: var(--hover-bg);
 }
 
+/* --- Navigation --- */
 .sidemenu-nav {
   margin-top: 20px;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidemenu-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidemenu-nav::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
 
 .sidemenu-nav a {
   display: flex;
   align-items: center;
   padding: 12px 14px;
+  min-height: 44px;
   margin-bottom: 8px;
   text-decoration: none;
   color: var(--text-color);
@@ -107,10 +123,16 @@ body {
   width: 20px;
   text-align: center;
   margin-right: 12px;
+  flex-shrink: 0;
 }
 
-.sidemenu-nav a:hover { background: var(--hover-bg); }
-.sidemenu-nav a:active { background: var(--active-bg); }
+.sidemenu-nav a:hover {
+  background: var(--hover-bg);
+}
+
+.sidemenu-nav a:active {
+  background: var(--active-bg);
+}
 
 /* --- Desktop Collapsed State --- */
 .sidemenu.collapsed {
@@ -121,14 +143,22 @@ body {
   justify-content: center;
 }
 
-.sidemenu.collapsed .sidemenu-head h2,
-.sidemenu.collapsed .sidemenu-nav a span {
+.sidemenu.collapsed .sidemenu-head h2 {
   display: none;
+}
+
+.sidemenu.collapsed .sidemenu-nav a span {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .sidemenu.collapsed .sidemenu-nav a {
   justify-content: center;
   padding: 12px 0;
+  min-height: 44px;
 }
 
 .sidemenu.collapsed .sidemenu-nav a i {
@@ -145,7 +175,7 @@ body {
     width: 100% !important;
     height: 40vh;
     border-radius: 20px 20px 0 0;
-    transform: translateY(26vh);
+    transform: translateY(28vh);
     transition: transform 0.4s ease;
   }
 
@@ -185,6 +215,9 @@ body {
   .sidemenu.collapsed .sidemenu-nav a span,
   .sidemenu-nav a span {
     display: inline !important;
+    width: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
   }
 
   .sidemenu.collapsed .sidemenu-nav a i,
