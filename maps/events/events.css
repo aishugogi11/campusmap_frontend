@@ -173,9 +173,13 @@ body {
     bottom: 0;
     top: auto;
     width: 100% !important;
-    height: 40vh;
+
+    height: min(30vh);
+    min-height: 230px;
+
     border-radius: 20px 20px 0 0;
-    transform: translateY(28vh);
+
+    transform: translateY(calc(100% - 95px));
     transition: transform 0.4s ease;
   }
 
